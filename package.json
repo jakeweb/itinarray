@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node backend/index.js",
+    "start": "ng build && node backend/index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
