@@ -1,3 +1,199 @@
-<h1>
-  {{title}}
-</h1>
+<header class="header">
+  <div class="grid">
+    <a href="" class="logo">
+    </a>
+    <nav class="nav">
+      <ul>
+        <li class="nav__link active"><a href="#how">How it works?</a></li>
+        <li class="nav__link"><a href="#join">Join us</a></li>
+        <li class="nav__link"><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="slider">
+  <div class="slider__content text-center">
+    <h1 class="text-promo">Don't waste your time!</h1>
+    <a href="#" class="btn btn_promo">
+      Become a pro 
+    </a>
+  </div>
+  <img src="{{currentSlide}}" alt="" class="slider__img">
+</div>
+
+<section id="how" class="section-step">
+  <div class="grid">
+    <p class="text-center">Big projects or small repairs, we'll help you find the right pro for your project.</p>
+    <h2 class="h2 text-orange text-center">
+      How it works?
+    </h2>
+
+    <!--Step 1 -->
+
+    <div class="row aligner-sm">
+      <div class="column-1-2">
+        <img src="assets/images/house.jpg" class="img-fluid" alt="house">
+      </div>
+      <div class="column-1-2">
+        <h3 class="step cf">
+          <span class="step__number text-blue">Step 1.</span>
+          <span class="step__text">You tell us about the work you need completed.</span>
+        </h3>
+        <p>The more we know about the size and scope of your job, the more accurately we can find the right pros for the work.</p>
+      </div>
+    </div>
+
+    <!--Step 2 -->
+
+    <div class="row aligner-sm">
+      <div class="column-1-2 column-right-sm">
+        <img src="assets/images/workers.jpg" class="img-fluid" alt="house">
+      </div>
+      <div class="column-1-2 column-left-sm">
+        <h3 class="step cf">
+          <span class="step__number text-blue">Step 2.</span>
+          <span class="step__text">We match you with the right pros for the job.</span>
+        </h3>
+        <p>We match you with background-checked pros whose expertise is just right for your request. Their responses go directly
+          to your inbox.</p>
+      </div>
+    </div>
+
+    <!--Step 3 -->
+
+    <div class="row aligner-sm">
+      <div class="column-1-2">
+        <img src="assets/images/woman.jpg" class="img-fluid" alt="house">
+      </div>
+      <div class="column-1-2">
+        <h3 class="step cf">
+          <span class="step__number text-blue">Step 3.</span>
+          <span class="step__text">You get a list of pros recommended by your neighbors.</span>
+        </h3>
+        <p>Sit back and relax, because our pros will call you to talk about the cost and timing of the project.</p>
+      </div>
+    </div>
+
+    <!--Step 4 -->
+
+    <div class="row aligner-sm">
+      <div class="column-1-2 column-right-sm">
+        <img src="assets/images/pro.jpg" class="img-fluid" alt="house">
+      </div>
+      <div class="column-1-2 column-left-sm">
+        <h3 class="step cf">
+          <span class="step__number text-blue">Step 4.</span>
+          <span class="step__text">You select the pro that works best for you.</span>
+        </h3>
+        <p>Read their reviews. Ask them questions. Decide if the price is within your budget. You own the selection of the right
+          pro for your home's needs.</p>
+      </div>
+
+    </div>
+
+    <!--Step 5 -->
+
+    <div class="row aligner-sm">
+      <div class="column-1-2">
+        <img src="assets/images/instruments.jpg" class="img-fluid" alt="house">
+      </div>
+      <div class="column-1-2">
+        <h3 class="step cf">
+          <span class="step__number text-blue">Step 5.</span>
+          <span class="step__text">Your pro completes the work.</span>
+        </h3>
+        <p>You're free to work out a schedule, pay, and review your pro. You always have final say on the quality of your pro's
+          work.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="join" class="section-join-us">
+  <h2 class="h2 text-orange text-center">
+    Join Us
+  </h2>
+  <form class="form">
+    <p class="form__text">
+      We will glad to see you in our team of pros. You have just to answer a few questions:
+    </p>
+    <div class="grid">
+      <div class="row form__group">
+        <div class="column-1-2 ">
+          <input type="text" name="" value="" placeholder="What is your name?">
+        </div>
+        <div class="column-1-2">
+          <input type="email" name="" value="" placeholder="Email">
+        </div>
+      </div>
+
+      <div class="row form__group">
+        <div class="column-1-2 ">
+          <!--<input type="text" name="" value="" placeholder="What is your name?">-->
+          <select>
+            <option>What service do you provide</option>
+            <option>The second option</option>
+            <option>The third option</option>
+          </select>
+        </div>
+        <div class="column-1-2">
+          <input type="text" name="" value="" placeholder="Phone number">
+        </div>
+      </div>
+
+      <div class="row form__group">
+        <div class="column-1-2">
+          <label for="checkbox" class="label-checkbox"><input type="checkbox" name="checkbox" id="checkbox" />I'm ready to travel to customers</label>
+
+
+        </div>
+        <div class="column-1-2">
+          <button type="submit" class="btn btn_submit">Become a part of team</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</section>
+<footer id="contact">
+  <h2 class="h2 text-orange text-center">
+    Contact Us
+  </h2>
+  <div class="grid">
+    <div class="row">
+      <div class="column-1-2 text-center">
+        <div>
+          <i class="fa fa-lg fa-envelope-o text-orange text-right" aria-hidden="true"></i>
+          <a href="mailto:gleery@somemail.com">gleery@somemail.com</a>
+        </div>
+        <div>
+          <i class="fa fa-2x fa-mobile text-orange text-right" aria-hidden="true"></i>
+          <a href="tel:+14163481892">+1 416-348-1892</a>
+        </div>
+      </div>
+      <div class="column-1-2 socials text-center">
+        <a href="" class="icon text-orange">
+          <i class="fa fa-2x fa-google-plus" aria-hidden="true"></i>
+        </a>
+        <a href="" class="icon icon_circle text-orange">
+          <i class="fa fa-2x fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="" class="icon text-orange">
+          <i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="" class="icon text-orange">
+          <i class="fa fa-2x fa-facebook" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <p class="copyright text-center">gleery.com © 2016</p>
+  </div>
+</footer>
+
+<div id="back-top" class="back-top text-orange" (click)="backTop()" [ngClass]="showBackTop()">
+  <i class="fa fa-2x fa-chevron-up" aria-hidden="true"></i>
+</div>
