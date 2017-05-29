@@ -18,13 +18,10 @@ export class AuthService {
 
     private apiConfig = API_CONFIG;
 
-
-
     isLoggedIn() {
         if (localStorage.getItem('token')) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -43,7 +40,6 @@ export class AuthService {
     }
 
     signUp(model: any) {
-        console.log(model);
         return this.apiService.post(this.apiConfig.signup, model);
     }
 }

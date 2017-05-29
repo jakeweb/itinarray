@@ -12,11 +12,8 @@ export class AuthGuardSkip implements CanActivate {
             return true;
         }
         else {
-
-            this.router.navigate(['/']);
-
+            this.router.navigate(['/admin/dashboard']);
             return false;
-
         }
 
     }
