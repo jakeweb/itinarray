@@ -3,7 +3,8 @@ const router = express.Router();
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const handler = require('./handler.js');
+const handler = require('./handler');
+const users = new(require('./db/users'));
 
 
 router.post('/api/signup', function (request, response) {
@@ -41,9 +42,12 @@ router.post('/api/signup', function (request, response) {
 
 router.post('/api/login', function (request, response) {
 
-  console.log(request.body);
-  let responseData = {};
-  handler.success(response, "You're logged in!", responseData);
+  users.getAllUsers().spread(function (data) {
+    console.log('data', data);
+    handler.success(response, "You're logged in!", data);
+  }).catch(function (error) {
+    console.log(error);
+  })
 
   // User.find({
   //   $or: [{

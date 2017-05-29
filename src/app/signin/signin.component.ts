@@ -65,8 +65,8 @@ export class SigninComponent implements OnInit {
       response => {
         this.model = {};
         this.loading = false;
-        localStorage.setItem('token', JSON.stringify(response));
-        localStorage.setItem('currentUser', JSON.stringify(response));
+        // localStorage.setItem('token', JSON.stringify(response));
+        // localStorage.setItem('currentUser', JSON.stringify(response));
         this.router.navigate(['/admin/dashboard']);
       },
       error => {

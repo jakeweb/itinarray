@@ -1,13 +1,11 @@
-CREATE DATABASE IF NOT EXISTS itinarray_test_database;
+CREATE DATABASE IF NOT EXISTS itinarray_test;
+USE itinarray_test;
 
---types
-CREATE TYPE "status_type" as enum('admin','user');
-
---tables
-CREATE TABLE "users"(
-  "id" serial primary key,
-  "full_name" varchar not null,
-  "password" varchar not null,
-  "email" varchar unique not null,
-  "role" status_type default 'user'
+CREATE TABLE Users (
+    ID int NOT NULL,
+    UserName varchar(30) NOT NULL,
+    Email varchar(30) UNIQUE NOT NULL,
+    Password varchar(30) NOT NULL,
+    Role ENUM('user', 'admin') DEFAULT 'user',
+    PRIMARY KEY (ID)
 );
