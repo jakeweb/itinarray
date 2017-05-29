@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS itinarray_test;
+
 USE itinarray_test;
 
 CREATE TABLE users (
