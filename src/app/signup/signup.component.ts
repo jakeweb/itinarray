@@ -15,6 +15,8 @@ export class SignupComponent {
 
   model: any = {};
   formSignUp: FormGroup;
+  errorMsg: any;
+  isError: boolean = false;
 
   constructor(
     fb: FormBuilder,
@@ -64,6 +66,8 @@ export class SignupComponent {
       },
       error => {
         console.log(error);
+        this.errorMsg = error;
+        this.isError = true;
       }
     );
   }

@@ -6,41 +6,49 @@ const bcrypt = require('bcryptjs');
 const handler = require('./handler');
 const auth = require('./auth');
 const users = new(require('./db/users'));
+const validate = new(require("./validator"));
 
 
-router.post('/api/signup', function (request, response) {
+router.post('/api/signup', validate.checkPattern, function (request, response) {
 
-  let user = {}; // create a new instance of the user model
-  user.name = request.body.name;
-  user.email = request.body.email;
+  users.getUserByEmail(request.body.email).spread(function (user) {
 
-  bcrypt.hash(request.body.password, 10, function (error, hash) {
-    if (error) {
-      console.log(error);
-      handler.error(response, 500, "Server error");
+    if (user.length > 0) {
+      handler.error(response, 500, "Email already used");
+
     } else {
-      // save password as hash
-      user.password = hash;
-      users.addUser(user).spread(function (data) {
-        // console.log('ok', data);
-        handler.success(response, "User created!");
-      }).catch(function (error) {
-        console.log(error);
-        handler.error(response, 500, error);
+
+      let user = {}; // create a new instance of the user model
+      user.name = request.body.name;
+      user.email = request.body.email;
+
+      bcrypt.hash(request.body.password, 10, function (error, hash) {
+        if (error) {
+          handler.error(response, 500, "Server error");
+        } else {
+          // save password as hash
+          user.password = hash;
+          users.addUser(user).spread(function (data) {
+            handler.success(response, "User created!");
+          }).catch(function (error) {
+            handler.error(response, 500, error);
+          });
+        }
       });
+
     }
 
+  }).catch(function (error) {
+    handler.error(response, 500, error);
+  })
 
 
-  });
 });
 
 
 router.post('/api/login', function (request, response) {
 
   users.getUserByEmail(request.body.email).spread(function (user) {
-
-    // console.log(user[0]);
 
     if (user.length > 0) {
 
@@ -69,8 +77,6 @@ router.post('/api/login', function (request, response) {
 
 router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
 
-  // console.log(request.body);
-
   users.getUserById(request.body.id).spread(function (user) {
     if (user.length > 0) {
       let responseData = {
@@ -84,7 +90,7 @@ router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
     }
 
   }).catch(function (error) {
-    console.log(error);
+
     handler.error(response, 500, error);
   })
 

@@ -27,7 +27,11 @@
           Password mismatch
         </small>
       </div>
-      
+    </div>
+    <div class="row form__group">
+      <small *ngIf="isError" class="text-danger">
+          {{errorMsg}}
+        </small>
     </div>
     <div class="row">
       <button type="submit" [disabled]="!formSignUp.valid" class="btn btn_submit btn_big">Sign Up</button>
