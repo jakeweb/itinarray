@@ -4,9 +4,11 @@ let users = function () {
   self = this;
 
   self.getUserByEmail = function (email) {
+    return connection.query("SELECT * FROM users WHERE email = \'" + email + "\';");
   };
 
   self.addUser = function (user) {
+    return connection.query("INSERT INTO users( name, email, password)" +
       "VALUES(\'" + user.name + "\', \'" + user.email + "\', \'" + user.password + "\');");
   };
 
