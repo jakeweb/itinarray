@@ -7,9 +7,8 @@
 ## Build
 
 1. Run `npm install` to install all packages. <br />
-2. Run `ng build` to build the project.
-3. Start Node server by `npm start`.
-4. Navigate to `http://localhost:8000/`.
+2. Start Node server by `npm start`.
+3. Navigate to `http://localhost:8000/`.
  
 
 
