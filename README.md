@@ -1,7 +1,7 @@
 ## Install Database
 
-1. Install MySQL.<br />
-2. Enter credentials for database user in ``backend/config.js` <br />
+1. Download and install MySQL. https://www.mysql.com/downloads/ <br />
+2. Enter credentials for database user in `backend/config.js` <br />
 3. Execute script placed in `backend/db/db.setup.sql` <br />
 
 ## Build
