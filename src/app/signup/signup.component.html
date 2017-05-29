@@ -2,13 +2,13 @@
   <div class="grid">
     <div class="row">
       <div class="column-1-2 form__group">
-        <input type="text" formControlName="name" [(ngModel)]="model.name" name="" value="" placeholder="Enter your name">
+        <input type="text" formControlName="name" [(ngModel)]="model.name" placeholder="Enter your name">
         <small *ngIf="!formSignUp.controls['name'].valid && formSignUp.controls['name'].touched" class="text-danger">
           Name must have minimum 3 and maximum 30 characters
         </small>
       </div>
       <div class="column-1-2 form__group">
-        <input type="email" formControlName="email" [(ngModel)]="model.email" name="" value="" placeholder="Email">
+        <input type="email" formControlName="email" [(ngModel)]="model.email" placeholder="Email">
         <small *ngIf="!formSignUp.controls['email'].valid && formSignUp.controls['email'].touched" class="text-danger">
           Email must have minimum 4 and maximum 30 characters
         </small>
@@ -16,17 +16,18 @@
     </div>
     <div class="row">
       <div class="column-1-2 form__group">
-        <input type="password" formControlName="password" [(ngModel)]="model.password" name="" value="" placeholder="Enter password">
+        <input type="password" formControlName="password" [(ngModel)]="model.password" placeholder="Enter password">
         <small *ngIf="!formSignUp.controls['password'].valid && formSignUp.controls['password'].touched" class="text-danger">
           Password must have minimum 6 and maximum 30 characters
         </small>
       </div>
       <div class="column-1-2 form__group">
-        <input type="password" formControlName="confirmPassword" validateEqual="password" name="" value="" placeholder="Confirm password">
+        <input type="password" formControlName="confirmPassword" validateEqual="password" placeholder="Confirm password">
         <small *ngIf="!formSignUp.controls['confirmPassword'].valid && !formSignUp.controls['confirmPassword'].pristine" class="text-danger">
           Password mismatch
         </small>
       </div>
+      
     </div>
     <div class="row">
       <div class="column-1-2">

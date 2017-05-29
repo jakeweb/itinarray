@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ValidateEqualDirective } from './validate-equal.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SignupComponent,
     DashboardComponent,
     MainComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ValidateEqualDirective
   ],
   imports: [
     BrowserAnimationsModule,

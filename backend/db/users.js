@@ -19,6 +19,7 @@ let users = function () {
   self.getLastId = function () {
     return connection.query("SELECT \"id\" FROM \"users\" ORDER BY \"id\" DESC LIMIT 1;");
   };
+  
   self.getAllUsers = function () {
     return connection.query("SELECT * FROM users;");
   };

@@ -22,7 +22,7 @@ router.post('/api/signup', function (request, response) {
       // save password as hash
       user.password = hash;
       users.addUser(user).spread(function (data) {
-        console.log('ok', data);
+        // console.log('ok', data);
         handler.success(response, "User created!");
       }).catch(function (error) {
         console.log(error);
@@ -67,7 +67,7 @@ router.post('/api/login', function (request, response) {
 
 router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
 
-  console.log(request.body);
+  // console.log(request.body);
 
   users.getUserById(request.body.id).spread(function (user) {
     if (user.length > 0) {
