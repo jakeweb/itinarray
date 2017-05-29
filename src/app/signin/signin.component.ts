@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Router } from '@angular/router';
 
 import { VALIDATOR_CONFIG } from '../shared/config/validator.config';
@@ -20,11 +19,7 @@ export class SigninComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastsManager,
-    vcr: ViewContainerRef,
-    private authService: AuthService) {
-    this.toastr.setRootViewContainerRef(vcr);
-  }
+    private authService: AuthService) {  }
 
   ngOnInit() {
     this.buildForm();
@@ -32,8 +27,6 @@ export class SigninComponent implements OnInit {
 
   formSignIn: FormGroup;
   model: any = {};
-  loading: boolean = false;
-
 
 
   buildForm(): void {
@@ -59,19 +52,14 @@ export class SigninComponent implements OnInit {
 
 
   signIn() {
-    this.loading = true;
 
     this.authService.signIn(this.model).subscribe(
       response => {
         this.model = {};
-        this.loading = false;
         localStorage.setItem('token', JSON.stringify(response));
-        localStorage.setItem('currentUser', JSON.stringify(response));
         this.router.navigate(['/admin/dashboard']);
       },
       error => {
-        this.loading = false;
-        this.toastr.error(error);
         console.log(error);
       });
   }

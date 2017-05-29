@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Router } from '@angular/router';
 
 import { VALIDATOR_CONFIG } from '../shared/config/validator.config';
@@ -14,22 +13,14 @@ import { AuthService } from '../shared/auth/auth.service';
 })
 export class SignupComponent {
 
-
   model: any = {};
-  loading: boolean = false;
-  msg: string = '';
-
   formSignUp: FormGroup;
 
   constructor(
     fb: FormBuilder,
     private router: Router,
-    private authService: AuthService,
-    public toastr: ToastsManager,
-    vcr: ViewContainerRef
+    private authService: AuthService
   ) {
-
-    this.toastr.setRootViewContainerRef(vcr);
 
     this.formSignUp = fb.group({
       "name": ["",
@@ -66,33 +57,15 @@ export class SignupComponent {
   }
 
   signUp() {
-    this.loading = true;
     this.authService.signUp(this.model).subscribe(
       data => {
         this.model = {};
-        this.loading = false;
-        this.toastr.success("User created!");
         this.router.navigate(['/login']);
       },
       error => {
-        this.loading = false;
-        this.errorHandler(error);
+        console.log(error);
       }
     );
-  }
-
-  private errorHandler(errorObject) {
-
-    let errorMessage = '';
-    if (errorObject.name && errorObject.name == "ValidationError") {
-      for (let prop in errorObject.errors) {
-        errorMessage = prop + ' ' + errorObject.errors[prop].value + ' already used';
-        this.toastr.error(errorMessage);
-      }
-    }
-    else {
-      this.toastr.error(errorObject);
-    }
   }
 
 
