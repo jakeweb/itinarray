@@ -1,13 +1,15 @@
 ## Install Database
 
-Install MySQL
-Enter credentials for database user in backend/config.js
-Execute script placed in backend/db/db.setup.sql
+1. Install MySQL.<br />
+2. Enter credentials for database user in ``backend/config.js` <br />
+3. Execute script placed in `backend/db/db.setup.sql` <br />
 
 ## Build
 
-Run `npm install` to install all packages. Run `ng build` to build the project. Start Node server by `npm start`.
-Navigate to `http://localhost:8000/`.
+1. Run `npm install` to install all packages. <br />
+2. Run `ng build` to build the project.
+3. Start Node server by `npm start`.
+4. Navigate to `http://localhost:8000/`.
  
 
 
