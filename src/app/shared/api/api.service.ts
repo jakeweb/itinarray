@@ -48,10 +48,9 @@ export class ApiService {
         let headers;
 
         // set headers
-        if (localStorage.getItem('currentUser')) {
+        if (localStorage.getItem('token')) {
             console.log('security request');
 
-            let currentUser = JSON.parse(localStorage.getItem('currentUser'));
             let token = JSON.parse(localStorage.getItem('token'));
 
             headers = new Headers({

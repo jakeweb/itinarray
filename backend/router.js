@@ -4,13 +4,14 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const handler = require('./handler');
+const auth = require('./auth');
 const users = new(require('./db/users'));
 
 
 router.post('/api/signup', function (request, response) {
 
   let user = {}; // create a new instance of the user model
-  user.name = request.body.name; // set the users name (comes from the request)
+  user.name = request.body.name;
   user.email = request.body.email;
 
   bcrypt.hash(request.body.password, 10, function (error, hash) {
@@ -21,9 +22,8 @@ router.post('/api/signup', function (request, response) {
     // save password as hash
     user.password = hash;
 
-    console.log(user);
     users.addUser(user).spread(function (data) {
-      handler.success(response, 'User registered!');
+      handler.success(response);
     }).catch(function (error) {
       handler.error(response, 500, error);
     })
@@ -36,7 +36,7 @@ router.post('/api/login', function (request, response) {
 
   users.getUserByEmail(request.body.email).spread(function (user) {
 
-    console.log(user[0].password);
+    // console.log(user[0]);
 
     if (user.length > 0) {
 
@@ -46,7 +46,8 @@ router.post('/api/login', function (request, response) {
         } else {
 
           if (matched) {
-            handler.success(response, "You're logged in!", user[0]);
+            let token = auth.createJWT(user[0]);
+            handler.success(response, token);
           } else {
             handler.error(response, 500, "Incorrect email or password");
           }
@@ -59,6 +60,27 @@ router.post('/api/login', function (request, response) {
   })
 });
 
+
+router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
+
+  console.log(request.body);
+
+  users.getUserById(request.body.id).spread(function (user) {
+    if (user.length > 0) {
+      let responseData = {
+        name: user[0].name,
+        email: user[0].email,
+        role: user[0].role
+      }
+      handler.success(response, responseData);
+    }
+
+  }).catch(function (error) {
+    console.log(error);
+    handler.error(response, 500, error);
+  })
+
+});
 
 
 router.get('*', function (request, response) {

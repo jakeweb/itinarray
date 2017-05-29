@@ -3,14 +3,14 @@ const config = require('./config');
 
 let auth = {
   createJWT: createJWT,
-  ensureAuthenticated: ensureAuthenticated,
-  getTokenSocket: getTokenSocket,
-  decodeToken: decodeToken
+  ensureAuthenticated: ensureAuthenticated
 }
 
 function createJWT(user) {
+
   let encode = {
-    id: user.id
+    id: user.ID,
+    role: user.role
   };
   return jwt.sign(encode, config.tokenSecret);
 };
@@ -22,7 +22,6 @@ function ensureAuthenticated(req, res, next) {
     });
   }
   let token = req.get('Authorization');
-  // console.log('token', token);
   let decoded = null;
   try {
     decoded = jwt.decode(token, config.tokenSecret);
@@ -31,39 +30,10 @@ function ensureAuthenticated(req, res, next) {
       message: err.message
     });
   }
-  // console.log('decoded', decoded);
+
   req.body.id = decoded.id;
+  req.body.role = decoded.role;
   next();
 };
-
-function getTokenSocket(token) {
-  let result = {};
-
-  try {
-    result.decoded = jwt.verify(token, config.tokenSecret);
-    result.error = false;
-  } catch (error) {
-    result.error = error;
-  }
-
-  return result;
-};
-
-function decodeToken(req, res) {
-  // console.log(req.header);
-  if (!req.header('Authorization')) {
-    return false;
-  }
-  let token = req.get('Authorization');
-  let decoded = null;
-  try {
-    decoded = jwt.decode(token, config.tokenSecret);
-  } catch (err) {
-    return res.status(401).json({
-      message: err.message
-    });
-  }
-  return decoded;
-}
 
 module.exports = auth;

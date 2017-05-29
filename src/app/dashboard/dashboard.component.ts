@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../shared/auth/auth.service';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  public currentUser: any;
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.getCurrentUser().subscribe(
+      response => {
+        this.currentUser = response;
+        // localStorage.setItem('token', JSON.stringify(response));
+        // this.router.navigate(['/admin/dashboard']);
+      },
+      error => {
+        // this.toastr.error(error);
+        console.log(error);
+      });
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

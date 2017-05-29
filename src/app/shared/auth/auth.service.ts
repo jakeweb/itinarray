@@ -21,7 +21,7 @@ export class AuthService {
 
 
     isLoggedIn() {
-        if (localStorage.getItem('currentUser')) {
+        if (localStorage.getItem('token')) {
             return true;
         }
         else {
@@ -30,11 +30,12 @@ export class AuthService {
     }
 
     getCurrentUser() {
-        return JSON.parse(localStorage.getItem('currentUser'))
+        return this.apiService.get(this.apiConfig.user);
     }
 
     logout() {
-        return this.apiService.post(this.apiConfig.logout);
+        localStorage.removeItem('token');
+        this.router.navigate(['/']);
     }
 
     signIn(data: any) {

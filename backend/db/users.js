@@ -3,6 +3,10 @@ let connection = require("./connection.js");
 let users = function () {
   self = this;
 
+  self.getUserById = function (id) {
+    return connection.query("SELECT * FROM users WHERE ID = " + id + ";");
+  };
+
   self.getUserByEmail = function (email) {
     return connection.query("SELECT * FROM users WHERE email = \'" + email + "\';");
   };
@@ -16,7 +20,7 @@ let users = function () {
     return connection.query("SELECT \"id\" FROM \"users\" ORDER BY \"id\" DESC LIMIT 1;");
   };
   self.getAllUsers = function () {
-    return connection.query("SELECT * FROM users ;");
+    return connection.query("SELECT * FROM users;");
   };
 };
 

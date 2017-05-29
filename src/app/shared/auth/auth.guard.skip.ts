@@ -8,7 +8,7 @@ export class AuthGuardSkip implements CanActivate {
 
     canActivate() {
 
-        if (!localStorage.getItem('currentUser')) {
+        if (!localStorage.getItem('token')) {
             return true;
         }
         else {
