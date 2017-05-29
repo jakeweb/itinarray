@@ -1,33 +1,24 @@
 <form class="form" [formGroup]="formSignIn" (ngSubmit)="signIn()">
   <div class="grid">
-    <div class="row">
-      <div class="column-1-2 form__group">
-        <input type="email" formControlName="email" [(ngModel)]="model.email" name="" value="" placeholder="Email">
+    <div class="row form__group">
+      <input type="email" formControlName="email" [(ngModel)]="model.email" name="" value="" placeholder="Email">
         <small *ngIf="!formSignIn.controls['email'].valid && formSignIn.controls['email'].touched" class="text-danger">
           Email must have minimum 4 and maximum 30 characters
         </small>
-      </div>
     </div>
-    <div class="row">
-      <div class="column-1-2 form__group">
-        <input type="password" formControlName="password" [(ngModel)]="model.password" name="" value="" placeholder="Enter password">
+    <div class="row form__group">
+      <input type="password" formControlName="password" [(ngModel)]="model.password" name="" value="" placeholder="Enter password">
         <small *ngIf="!formSignIn.controls['password'].valid && formSignIn.controls['password'].touched" class="text-danger">
           Password must have minimum 6 and maximum 30 characters
         </small>
-      </div>
     </div>
-    <div class="row">
-      <div class="column-1-2 form__group">
-        <small *ngIf="isError" class="text-danger">
+    <div class="row form__group">
+      <small *ngIf="isError" class="text-danger">
           {{errorMsg}}
         </small>
-      </div>
     </div>
-    
     <div class="row">
-      <div class="column-1-2">
-        <button type="submit" [disabled]="!formSignIn.valid" class="btn btn_submit">Login</button>
-      </div>
+      <button type="submit" [disabled]="!formSignIn.valid" class="btn btn_submit btn_big">Login</button>
     </div>
   </div>
 </form>

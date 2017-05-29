@@ -99,14 +99,31 @@ ul {
   clear: both;
 }
 
-.aligner {
+.aligner,
+.aligner-sm {
   display: flex;
   align-items: center
 }
 
+.img-fluid {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.column-right-sm {
+  position: relative;
+  left: 50%;
+}
+
+.column-left-sm {
+  position: relative;
+  left: -50%;
+}
+
 .column-1-2 {
   float: left;
-  width: 100%;
+  width: 50%;
   max-width: 600px;
   padding: 0 15px;
 }
@@ -140,6 +157,7 @@ ul {
 }
 
 .header {
+  padding: 0 15px;
   background: #f05523;
   color: #fff;
   font-size: 20px;
@@ -298,6 +316,11 @@ ul {
   cursor: not-allowed;
 }
 
+.btn_big {
+  display: inline-block;
+  min-width: 100px;
+}
+
 .section-step {
   padding: 70px;
   font-size: 25px;
@@ -323,27 +346,6 @@ ul {
 
 .step__text {
   vertical-align: middle;
-}
-
-.img-fluid {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.column-right-sm {
-  position: relative;
-  left: 50%;
-}
-
-.column-left-sm {
-  position: relative;
-  left: -50%;
-}
-
-.aligner-sm {
-  display: flex;
-  align-items: center;
 }
 
 .main {
@@ -372,7 +374,7 @@ ul {
 .back-top::after {
   display: block;
   position: absolute;
-  top: 50%;
+  top: 57%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 52px;
