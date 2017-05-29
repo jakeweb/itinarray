@@ -1,3 +1,4 @@
 <p>Name: {{currentUser.name}}</p>
-<p>Role: {{currentUser.role}}</p>
+<div *ngIf="isAdmin()">info for admin</div>
+<div *ngIf="!isAdmin()">info for user</div>
 <button type="" (click)="logout()">Logout</button>

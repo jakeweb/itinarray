@@ -74,6 +74,9 @@ router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
       }
       handler.success(response, responseData);
     }
+    else {
+      handler.error(response, 401, error);
+    }
 
   }).catch(function (error) {
     console.log(error);

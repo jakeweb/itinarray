@@ -20,13 +20,18 @@ export class DashboardComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser().subscribe(
       response => {
         this.currentUser = response;
-        // localStorage.setItem('token', JSON.stringify(response));
-        // this.router.navigate(['/admin/dashboard']);
       },
       error => {
-        // this.toastr.error(error);
         console.log(error);
       });
+  }
+
+  isAdmin() {
+    if (this.currentUser.role == "admin") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   logout() {
