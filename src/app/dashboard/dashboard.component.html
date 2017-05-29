@@ -1,4 +1,13 @@
-<p>Name: {{currentUser.name}}</p>
-<div *ngIf="isAdmin()">info for admin</div>
-<div *ngIf="!isAdmin()">info for user</div>
-<button type="" (click)="logout()">Logout</button>
+<div class="slider slider_dashboard">
+  <div class="slider__content text-center">
+    <h1 *ngIf="isAdmin()" class="h2 text-orange">Text for Admin</h1>
+    <h1 *ngIf="!isAdmin()" class="h2 text-orange">Text for User</h1>
+    <h2 class="h2 text-orange">Name: {{currentUser.name}}</h2>
+    
+    <a href="#" class="btn btn_logout" (click)="logout()">
+      Logout
+    </a>
+  </div>
+  <img *ngIf="isAdmin()" src="assets/images/plumber.jpg" alt="" class="slider__img">
+  <img *ngIf="!isAdmin()" src="assets/images/slide_2.jpg" alt="" class="slider__img">
+</div>

@@ -193,6 +193,10 @@ ul {
   max-height: 710px;
 }
 
+.slider.slider_dashboard {
+  max-height: none;
+}
+
 .slider__img {
   display: block;
   width: 100%;
@@ -224,14 +228,38 @@ ul {
   background: transparent;
 }
 
-.btn_promo {
+.btn_promo,
+.btn_logout {
   display: inline-block;
   padding: 30px;
   font-size: 36px;
   color: #fff;
-  background: rgba(105, 160, 234, 0.4);
   border: 1px solid #fff;
   transition: all 0.2s ease-in-out;
+}
+
+.btn_promo {
+  background: rgba(105, 160, 234, 0.4);
+}
+
+.btn_promo:hover,
+.btn_promo:focus,
+.btn_promo:active {
+  color: #fff;
+  background: rgba(105, 160, 234, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn_logout {
+  background: rgba(240, 85, 35, 0.4);
+}
+
+.btn_logout:hover,
+.btn_logout:focus,
+.btn_logout:active {
+  color: #fff;
+  background: rgba(240, 85, 35, 1);
+  transition: all 0.3s ease-in-out;
 }
 
 .btn_submit {
@@ -260,14 +288,6 @@ ul {
 
 .btn_submit[disabled]:hover {
   cursor: not-allowed;
-}
-
-.btn_promo:hover,
-.btn_promo:focus,
-.btn_promo:active {
-  color: #fff;
-  background: rgba(105, 160, 234, 1);
-  transition: all 0.3s ease-in-out;
 }
 
 .section-step {
