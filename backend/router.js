@@ -57,6 +57,8 @@ router.post('/api/login', function (request, response) {
           }
         }
       });
+    } else {
+      handler.error(response, 500, "Incorrect email or password");
     }
 
   }).catch(function (error) {
@@ -78,7 +80,7 @@ router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
       }
       handler.success(response, responseData);
     } else {
-      handler.error(response, 401, error);
+      handler.error(response, 500, error);
     }
 
   }).catch(function (error) {

@@ -17,6 +17,14 @@
       </div>
     </div>
     <div class="row">
+      <div class="column-1-2 form__group">
+        <small *ngIf="isError" class="text-danger">
+          {{errorMsg}}
+        </small>
+      </div>
+    </div>
+    
+    <div class="row">
       <div class="column-1-2">
         <button type="submit" [disabled]="!formSignIn.valid" class="btn btn_submit">Login</button>
       </div>

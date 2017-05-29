@@ -17,7 +17,7 @@ export class ApiService {
         console.log("get:", url);
         return this.http.get(this.apiPreff + url, this.headersOptions())
             .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error || 'Server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
 
     post(url: string, body?: any): Observable<any[]> {
@@ -25,7 +25,7 @@ export class ApiService {
         console.log("post:", url);
         return this.http.post(this.apiPreff + url, bodyString, this.headersOptions())
             .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error || 'Server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
 
     put(url: string, body: any): Observable<any[]> {
@@ -33,14 +33,14 @@ export class ApiService {
         console.log("put:", url);
         return this.http.put(this.apiPreff + url, bodyString, this.headersOptions())
             .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error || 'Server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
 
     delete(url: string): Observable<any[]> {
         console.log("delete:", url);
         return this.http.delete(this.apiPreff + url, this.headersOptions())
             .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error || 'Server error'));
+            .catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
 
     // private helper method

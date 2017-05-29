@@ -331,6 +331,57 @@ ul {
   margin: 0 auto;
 }
 
+.column-right-sm {
+  position: relative;
+  left: 50%;
+}
+
+.column-left-sm {
+  position: relative;
+  left: -50%;
+}
+
+.aligner-sm {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.back-top {
+  display: none;
+  position: fixed;
+  right: 5%;
+  bottom: 25px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.back-top.visible {
+  display: inline-block;
+}
+
+.back-top:hover {
+  opacity: 1;
+}
+
+.back-top::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border: 2px solid #f05523;
+  border-radius: 50%;
+  content: "";
+}
+
 .section-join-us {
   padding: 30px 0;
   background-image: url("assets/images/join_us_bg.jpg");
@@ -457,57 +508,6 @@ select {
 
 footer {
   padding-bottom: 20px;
-}
-
-.column-right-sm {
-  position: relative;
-  left: 50%;
-}
-
-.column-left-sm {
-  position: relative;
-  left: -50%;
-}
-
-.aligner-sm {
-  display: flex;
-  align-items: center;
-}
-
-.main {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-}
-
-.back-top {
-  display: none;
-  position: fixed;
-  right: 5%;
-  bottom: 25px;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.back-top.visible {
-  display: inline-block;
-}
-
-.back-top:hover {
-  opacity: 1;
-}
-
-.back-top::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  border: 2px solid #f05523;
-  border-radius: 50%;
-  content: "";
 }
 
 @media screen and (max-width: 767px) {
