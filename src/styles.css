@@ -127,8 +127,16 @@ ul {
   color: #f05523;
 }
 
+.text-white {
+  color: #fff;
+}
+
 .text-danger {
   color: #f05523;
+}
+
+.bg-dark {
+  background: #222;
 }
 
 .header {
@@ -193,7 +201,7 @@ ul {
   max-height: 710px;
 }
 
-.slider.slider_dashboard {
+.slider.slider_full-height {
   max-height: none;
 }
 
