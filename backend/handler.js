@@ -8,9 +8,8 @@ function successHandler(response, data) {
 }
 
 function errorHandler(response, status, error) {
-    return response.status(status).json({
-        message: error
-    });
+    console.log(error);
+    return response.status(status).json(error);
 }
 
 module.exports = handler;

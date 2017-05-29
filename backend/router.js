@@ -16,17 +16,21 @@ router.post('/api/signup', function (request, response) {
 
   bcrypt.hash(request.body.password, 10, function (error, hash) {
     if (error) {
+      console.log(error);
       handler.error(response, 500, "Server error");
+    } else {
+      // save password as hash
+      user.password = hash;
+      users.addUser(user).spread(function (data) {
+        console.log('ok', data);
+        handler.success(response, "User created!");
+      }).catch(function (error) {
+        console.log(error);
+        handler.error(response, 500, error);
+      });
     }
 
-    // save password as hash
-    user.password = hash;
 
-    users.addUser(user).spread(function (data) {
-      handler.success(response);
-    }).catch(function (error) {
-      handler.error(response, 500, error);
-    })
 
   });
 });
@@ -73,8 +77,7 @@ router.get('/api/user', auth.ensureAuthenticated, function (request, response) {
         role: user[0].role
       }
       handler.success(response, responseData);
-    }
-    else {
+    } else {
       handler.error(response, 401, error);
     }
 
