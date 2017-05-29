@@ -15,9 +15,7 @@ import { AuthService } from '../shared/auth/auth.service';
 export class SignupComponent {
 
 
-  model: any = {
-    username: ''
-  };
+  model: any = {};
   loading: boolean = false;
   msg: string = '';
 

@@ -2,9 +2,9 @@
   <div class="grid">
     <div class="row">
       <div class="column-1-2 form__group">
-        <input type="text" formControlName="username" [(ngModel)]="model.username" name="" value="" placeholder="Enter your name">
-        <small *ngIf="!formSignUp.controls['username'].valid && formSignUp.controls['username'].touched" class="text-danger">
-          Username must have minimum 3 and maximum 30 characters
+        <input type="text" formControlName="name" [(ngModel)]="model.name" name="" value="" placeholder="Enter your name">
+        <small *ngIf="!formSignUp.controls['name'].valid && formSignUp.controls['name'].touched" class="text-danger">
+          Name must have minimum 3 and maximum 30 characters
         </small>
       </div>
       <div class="column-1-2 form__group">
