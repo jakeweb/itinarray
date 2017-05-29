@@ -46,7 +46,6 @@ export class ApiService {
     // private helper method
     private headersOptions() {
         let headers;
-        let options;
 
         // set headers
         if (localStorage.getItem('currentUser')) {
@@ -65,6 +64,6 @@ export class ApiService {
             console.log('primary request');
         }
 
-        return headers;
+        return new RequestOptions({ headers: headers, withCredentials: true });
     }
 }

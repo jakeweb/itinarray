@@ -38,10 +38,11 @@ export class AuthService {
     }
 
     signIn(data: any) {
-        return this.apiService.post(this.apiConfig.signin, data);
+        return this.apiService.post(this.apiConfig.login, data);
     }
 
     signUp(model: any) {
+        console.log(model);
         return this.apiService.post(this.apiConfig.signup, model);
     }
 }

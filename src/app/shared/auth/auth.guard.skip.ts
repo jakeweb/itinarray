@@ -11,8 +11,13 @@ export class AuthGuardSkip implements CanActivate {
         if (!localStorage.getItem('currentUser')) {
             return true;
         }
-        this.router.navigate(['/main']);
+        else {
 
-        return false;
+            this.router.navigate(['/']);
+
+            return false;
+
+        }
+
     }
 }

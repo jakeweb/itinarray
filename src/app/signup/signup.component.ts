@@ -34,12 +34,12 @@ export class SignupComponent {
     this.toastr.setRootViewContainerRef(vcr);
 
     this.formSignUp = fb.group({
-      "username": ["",
+      "name": ["",
         [
           Validators.required,
-          Validators.minLength(VALIDATOR_CONFIG.username.minLength),
-          Validators.maxLength(VALIDATOR_CONFIG.username.maxLength),
-          Validators.pattern(VALIDATOR_CONFIG.username.pattern)
+          Validators.minLength(VALIDATOR_CONFIG.name.minLength),
+          Validators.maxLength(VALIDATOR_CONFIG.name.maxLength),
+          Validators.pattern(VALIDATOR_CONFIG.name.pattern)
         ]
       ],
       "email": ["",
@@ -73,13 +73,12 @@ export class SignupComponent {
       data => {
         this.model = {};
         this.loading = false;
-        // this.toastr.success(data.message || "User created!");
-        this.router.navigate(['/signup/final']);
+        this.toastr.success("User created!");
+        this.router.navigate(['/login']);
       },
       error => {
         this.loading = false;
         this.errorHandler(error);
-        // console.log(error);
       }
     );
   }
