@@ -9,6 +9,11 @@
 1. Run `npm install` to install all packages. <br />
 2. Start Node server by `npm start`.
 3. Navigate to `http://localhost:8000/`.
+
+## Test users
+1. Email: test@test.com; Password: 111111
+2. Email admin@admin.com; Password: 111111
+
  
 
 
